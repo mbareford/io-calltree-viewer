@@ -1,0 +1,239 @@
+CrayPat/X:  Version 6.4.1 Revision 6a6694f  06/27/16 17:24:11
+
+Number of PEs (MPI ranks):   192
+                           
+Numbers of PEs per Node:      24  PEs on each of  8  Nodes
+                           
+Numbers of Threads per PE:     1
+                           
+Number of Cores per Socket:   12
+
+Execution start time:  Thu Sep  1 15:30:08 2016
+
+System name and speed:  tdsmom  2701 MHz (approx)
+
+Intel ivybridge CPU  Family:  6  Model: 62  Stepping:  4
+
+
+Current path to data file:
+  /work/z01/z01/mrb/d101/nektar++/hdf5/aorta/arc/benchmark/exe/sionlib/read/FieldIOBenchmarker+pat+8220-15t.ap2  (RTS)
+
+
+Notes for table 1:
+
+  Table option:
+    -O calltree
+  Options implied by table option:
+    -d ti%@0.95,ti,tr -b ct,pe=HIDE
+  Other options:
+    -T 
+
+  The Total value for Time is the sum for the Calltree values.
+  The Total value for Calls is the nan for the Calltree values.
+  The Calltree value for Time, Calls is the avg for the PE values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with Time% > 0.
+
+  Percentages at each level are of the Total for the program.
+    (For percentages relative to next level up, specify:
+      -s percent=r[elative])
+
+Table 1:  Function Calltree View
+
+  Time% |     Time |     Calls |Calltree
+        |          |           | PE=HIDE
+       
+ 100.0% | 3.445541 |        -- |Total
+|-----------------------------------------------------------------------------
+|  94.8% | 3.264761 |       1.0 |main
+||----------------------------------------------------------------------------
+||  87.6% | 3.018143 |        -- |Nektar::LibUtilities::NekFactory<>::CreateInstance
+3|        |          |           | Nektar::LibUtilities::CommMpi::create
+4|        |          |           |  Nektar::LibUtilities::CommMpi::CommMpi
+|||||-------------------------------------------------------------------------
+5||||  87.6% | 3.018137 |       1.0 |MPI_Init(sync)
+5||||   0.0% | 0.000003 |       1.0 |MPI_Init
+5||||   0.0% | 0.000002 |       1.0 |MPI_Comm_size
+5||||   0.0% | 0.000001 |       1.0 |MPI_Initialized
+5||||   0.0% | 0.000001 |       1.0 |MPI_Comm_rank
+|||||=========================================================================
+||   6.9% | 0.238492 |        -- |TestRead
+|||---------------------------------------------------------------------------
+3||   6.4% | 0.218792 |      10.0 |Nektar::LibUtilities::FieldIOSIONlib::v_Import
+||||--------------------------------------------------------------------------
+4|||   4.0% | 0.138173 |      10.0 |Nektar::LibUtilities::FieldIOSIONlib::OpenFileForReading
+|||||-------------------------------------------------------------------------
+5||||   1.3% | 0.046019 |     270.0 |_sion_mpi_bcastr_cb
+5||||   0.8% | 0.027715 |      21.4 |_sion_file_read_ansi
+5||||   0.8% | 0.026826 |       9.0 |_sion_file_open_ansi_read
+5||||   0.7% | 0.023463 |      54.0 |_sion_mpi_barrier_cb
+5||||   0.2% | 0.008042 |      27.0 |_sion_mpi_create_lcg_cb
+5||||   0.1% | 0.004640 |      10.0 |Nektar::LibUtilities::FieldIOSIONlib::OpenFileForReading(exclusive)
+5||||   0.0% | 0.001416 |      90.0 |_sion_mpi_scatterr_cb
+5||||   0.0% | 0.000019 |       0.0 |_sion_file_close_ansi
+5||||   0.0% | 0.000015 |        -- |sion_paropen_mpi
+||||||------------------------------------------------------------------------
+6|||||   0.0% | 0.000011 |       9.0 |MPI_Comm_size
+6|||||   0.0% | 0.000004 |       9.0 |MPI_Comm_rank
+||||||========================================================================
+5||||   0.0% | 0.000011 |      18.3 |_sion_file_set_position_ansi
+5||||   0.0% | 0.000006 |       9.0 |_sion_file_flush_ansi
+5||||   0.0% | 0.000002 |       9.2 |_sion_file_purge_ansi
+5||||   0.0% | 0.000000 |       0.2 |_sion_file_get_position_ansi
+|||||=========================================================================
+4|||   1.8% | 0.062106 |      10.0 |Nektar::LibUtilities::FieldIOSIONlib::v_Import(exclusive)
+4|||   0.3% | 0.009657 |      18.0 |_sion_mpi_barrier_cb
+4|||   0.2% | 0.006322 |       9.0 |_sion_file_close_ansi
+4|||   0.1% | 0.002264 | 296,339.7 |_sion_file_read_ansi
+4|||   0.0% | 0.000203 |      18.0 |_sion_mpi_free_lcg_cb
+4|||   0.0% | 0.000028 |      17.3 |MPIDI_CH3I_Progress
+4|||   0.0% | 0.000021 |       9.0 |_sion_file_purge_ansi
+4|||   0.0% | 0.000010 |      10.0 |Nektar::LibUtilities::FieldIO::CheckFieldDefinition
+4|||   0.0% | 0.000009 |      18.0 |_sion_file_get_position_ansi
+4|||   0.0% | 0.000000 |       0.1 |==LO_MEMORY== FieldIOBenchmarker+pat
+||||==========================================================================
+3||   0.5% | 0.018516 |        -- |Nektar::LibUtilities::FieldIO::GetFileType
+4||        |          |           | Nektar::LibUtilities::CommMpi::v_Bcast
+|||||-------------------------------------------------------------------------
+5||||   0.5% | 0.018402 |       1.0 |MPI_Bcast(sync)
+5||||   0.0% | 0.000114 |       1.0 |MPI_Bcast
+|||||=========================================================================
+3||   0.0% | 0.000795 |        -- |ReadIDsForThisRank
+||||--------------------------------------------------------------------------
+4|||   0.0% | 0.000795 |        -- |Nektar::LibUtilities::FieldIO::GetFileType
+5|||        |          |           | Nektar::LibUtilities::CommMpi::v_Bcast
+||||||------------------------------------------------------------------------
+6|||||   0.0% | 0.000786 |       1.0 |MPI_Bcast(sync)
+6|||||   0.0% | 0.000009 |       1.0 |MPI_Bcast
+||||||========================================================================
+4|||   0.0% | 0.000000 |       1.0 |Nektar::LibUtilities::GetFieldIOFactory
+||||==========================================================================
+3||   0.0% | 0.000356 |        -- |Nektar::LibUtilities::CommMpi::v_AllReduce
+||||--------------------------------------------------------------------------
+4|||   0.0% | 0.000213 |      10.0 |MPI_Allreduce
+4|||   0.0% | 0.000142 |      10.0 |MPI_Allreduce(sync)
+||||==========================================================================
+3||   0.0% | 0.000032 |      20.0 |MPI_Wtime
+3||   0.0% | 0.000001 |       1.0 |Nektar::LibUtilities::GetFieldIOFactory
+|||===========================================================================
+||   0.2% | 0.007847 |       1.0 |main(exclusive)
+||   0.0% | 0.000157 |       1.0 |PrintResults
+|||---------------------------------------------------------------------------
+3||   0.0% | 0.000154 |        -- |Nektar::LibUtilities::CommMpi::v_AllReduce
+||||--------------------------------------------------------------------------
+4|||   0.0% | 0.000139 |       1.0 |MPI_Allreduce(sync)
+4|||   0.0% | 0.000015 |       1.0 |MPI_Allreduce
+||||==========================================================================
+3||   0.0% | 0.000002 |       1.0 |PrintResults(exclusive)
+3||   0.0% | 0.000000 |       0.0 |std::num_put<>::do_put
+|||===========================================================================
+||   0.0% | 0.000081 |       0.0 |std::__basic_file<>::xsgetn
+||   0.0% | 0.000027 |       1.0 |MPI_Finalize(sync)
+||   0.0% | 0.000010 |       0.0 |std::__basic_file<>::open
+||   0.0% | 0.000003 |       0.0 |std::__basic_file<>::close
+||   0.0% | 0.000001 |       1.0 |Nektar::LibUtilities::GetCommFactory
+||   0.0% | 0.000001 |       1.0 |MPI_Finalize
+||   0.0% | 0.000000 |       0.3 |std::basic_ostream<>& std::__ostream_insert<>
+||   0.0% | 0.000000 |       0.2 |std::num_put<>::do_put
+||   0.0% | 0.000000 |       0.1 |std::ostream::flush
+||============================================================================
+|   4.0% | 0.137817 |  32,926.9 |_sion_file_read_ansi
+|   0.7% | 0.023536 |       8.0 |_sion_mpi_barrier_cb
+|   0.4% | 0.014347 |      30.0 |_sion_mpi_bcastr_cb
+|   0.1% | 0.002856 |       1.0 |_sion_file_open_ansi_read
+|   0.0% | 0.001235 |       3.0 |_sion_mpi_create_lcg_cb
+|   0.0% | 0.000656 |      10.0 |_sion_mpi_scatterr_cb
+|   0.0% | 0.000284 |       1.0 |_sion_file_close_ansi
+|   0.0% | 0.000038 |       2.0 |_sion_mpi_free_lcg_cb
+|   0.0% | 0.000003 |       2.0 |_sion_file_purge_ansi
+|   0.0% | 0.000003 |       4.0 |==LO_MEMORY== FieldIOBenchmarker+pat
+|   0.0% | 0.000002 |       2.0 |_sion_file_set_position_ansi
+|   0.0% | 0.000002 |       2.0 |_sion_file_get_position_ansi
+|   0.0% | 0.000002 |        -- |sion_paropen_mpi
+||----------------------------------------------------------------------------
+||   0.0% | 0.000001 |       1.0 |MPI_Comm_size
+||   0.0% | 0.000000 |       1.0 |MPI_Comm_rank
+||============================================================================
+|   0.0% | 0.000001 |       1.0 |_sion_file_flush_ansi
+|=============================================================================
+
+========================  Additional details  ========================
+
+Experiment:  trace
+
+Original path to data file:
+  /work/z01/z01/mrb/d101/nektar++/hdf5/aorta/arc/benchmark/exe/sionlib/FieldIOBenchmarker+pat+8220-15t.xf  (RTS)
+
+Original program:
+  /work/z01/z01/mrb/d101/nektar++/hdf5/aorta/arc/benchmark/exe/sionlib/FieldIOBenchmarker
+
+Instrumented with:
+  pat_build -f -u -g mpi,io,aio,sysio,sysfs -D force-instr=y \
+    FieldIOBenchmarker
+
+Instrumented program:
+  /work/z01/z01/mrb/d101/nektar++/hdf5/aorta/arc/benchmark/exe/sionlib/FieldIOBenchmarker+pat
+
+Program invocation:
+  /work/z01/z01/mrb/d101/nektar++/hdf5/aorta/arc/benchmark/exe/sionlib/FieldIOBenchmarker+pat -v -n 10 -m r ./diffusion3d.fld
+
+Exit Status:  0 for 192 PEs
+
+Memory pagesize:  4 KiB
+
+Memory hugepagesize:  Not Available
+
+Programming environment:  GNU
+
+Runtime environment variables:
+  ATP_HOME=/opt/cray/atp/1.8.3
+  ATP_IGNORE_SIGTERM=1
+  ATP_MRNET_COMM_PATH=/opt/cray/atp/1.8.3/libexec/atp_mrnet_commnode_wrapper
+  ATP_POST_LINK_OPTS=-Wl,-L/opt/cray/atp/1.8.3/libApp/ 
+  CRAYOS_VERSION=5.2.56
+  CRAYPE_VERSION=2.4.2
+  CRAY_LIBSCI_VERSION=13.2.0
+  GCC_VERSION=5.1.0
+  GNU_VERSION=5.1.0
+  LIBSCI_VERSION=13.2.0
+  MODULE_VERSION=3.2.10.2
+  MODULE_VERSION_STACK=3.2.10.2
+  MPICH_ABORT_ON_ERROR=1
+  MPICH_DIR=/opt/cray/mpt/7.2.6/gni/mpich-gnu/51
+  OMP_NUM_THREADS=1
+  PATH=/opt/cray/perftools/6.4.1/bin:/opt/cray/papi/5.4.3.2/bin:/opt/cray/rca/1.0.0-2.0502.57212.2.56.ari/bin:/opt/cray/pmi/5.0.7-1.0000.10678.155.25.ari/bin:/opt/gcc/5.1.0/bin:/home/y07/y07/cse/xalt/0.6.0/libexec:/home/y07/y07/cse/xalt/0.6.0/bin:/opt/cray/mpt/7.2.6/gni/bin:/opt/pbs/12.2.401.141761/bin:/opt/cray/craype/2.4.2/bin:/opt/cray/llm/default/bin:/opt/cray/llm/default/etc:/opt/cray/xpmem/0.1-2.0502.57015.1.15.ari/bin:/opt/cray/ugni/6.0-1.0502.10245.9.9.ari/bin:/opt/cray/udreg/2.3.2-1.0502.9889.2.20.ari/bin:/opt/cray/lustre-cray_ari_s/2.5_3.0.101_0.35.1_1.0502.8640.15.1-1.0502.18911.12.4/sbin:/opt/cray/lustre-cray_ari_s/2.5_3.0.101_0.35.1_1.0502.8640.15.1-1.0502.18911.12.4/bin:/opt/cray/alps/5.2.3-2.0502.9295.14.14.ari/sbin:/opt/cray/alps/5.2.3-2.0502.9295.14.14.ari/bin:/opt/cray/sdb/1.0-1.0502.58450.3.27.ari/bin:/opt/cray/nodestat/2.2-1.0502.58998.2.7.ari/bin:/opt/modules/3.2.10.2/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/X11R6/bin:/usr/games:/usr/lib/mit/bin:/usr/lib/mit/sbin:.:/usr/lib/qt3/bin:/opt/cray/bin
+  PAT_BUILD_PAPI_BASEDIR=/opt/cray/papi/5.4.3.2
+  PAT_REPORT_PRUNE_NAME=_cray$mt_start_,__cray_hwpc_,f_cray_hwpc_,cstart,__pat_,pat_region_,PAT_,OMP.slave_loop,slave_entry,_new_slave_entry,THREAD_POOL_join,__libc_start_main,_start,__start,start_thread,__wrap_,UPC_ADIO_,_upc_,upc_,__caf_,__pgas_,syscall
+  PAT_RT_EXIT_AFTER_INIT=0
+  PAT_RT_TRACE_FUNCTION_DISPLAY=0
+  PERFTOOLS_VERSION=6.4.1
+  PMI_FORK_RANK=0
+  PMI_GNI_COOKIE=1567096832:1567162368
+  PMI_GNI_DEV_ID=0
+  PMI_GNI_LOC_ADDR=15:15
+  PMI_GNI_PTAG=150:151
+  XTOS_VERSION=5.2.56
+
+Report time environment variables:
+    CRAYPAT_ROOT=/opt/cray/perftools/6.4.1
+    PAT_REPORT_PRUNE_NAME=_cray$mt_start_,__cray_hwpc_,f_cray_hwpc_,cstart,__pat_,pat_region_,PAT_,OMP.slave_loop,slave_entry,_new_slave_entry,THREAD_POOL_join,__libc_start_main,_start,__start,start_thread,__wrap_,UPC_ADIO_,_upc_,upc_,__caf_,__pgas_,syscall
+
+Number of MPI control variables collected:  80
+
+  (To see the list, specify: -s mpi_cvar=show)
+
+Report command line options:  -O calltree -T
+
+Operating system:
+  Linux 3.0.101-0.35.1_1.0502.8640-cray_ari_c #1 SMP Wed Feb 18 05:13:50 UTC 2015
+
+Estimated minimum instrumentation overhead per call of a traced function,
+  which was subtracted from the data shown in this report
+  (for raw data, use the option:  -s overhead=include):
+    Time  0.221  microsecs
+
+Number of traced functions:  1447
+
+  (To see the list, specify:  -s traced_functions=show)
+

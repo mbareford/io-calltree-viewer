@@ -1,0 +1,623 @@
+CrayPat/X:  Version 6.4.1 Revision 6a6694f  06/27/16 17:24:11
+
+Number of PEs (MPI ranks):   192
+                           
+Numbers of PEs per Node:      24  PEs on each of  8  Nodes
+                           
+Numbers of Threads per PE:     1
+                           
+Number of Cores per Socket:   12
+
+Execution start time:  Thu Sep  1 15:24:33 2016
+
+System name and speed:  tdsmom  2701 MHz (approx)
+
+Intel ivybridge CPU  Family:  6  Model: 62  Stepping:  4
+
+
+Current path to data file:
+  /work/z01/z01/mrb/d101/nektar++/hdf5/aorta/arc/benchmark/exe/hdf5/write/FieldIOBenchmarker+pat+8098-15t.ap2  (RTS)
+
+
+Notes for table 1:
+
+  Table option:
+    -O calltree
+  Options implied by table option:
+    -d ti%@0.95,ti,tr -b ct,pe=HIDE
+  Other options:
+    -T 
+
+  The Total value for Time is the sum for the Calltree values.
+  The Total value for Calls is the nan for the Calltree values.
+  The Calltree value for Time, Calls is the avg for the PE values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with Time% > 0.
+
+  Percentages at each level are of the Total for the program.
+    (For percentages relative to next level up, specify:
+      -s percent=r[elative])
+
+Table 1:  Function Calltree View
+
+  Time% |     Time | Calls |Calltree
+        |          |       | PE=HIDE
+       
+ 100.0% | 8.203082 |    -- |Total
+|-----------------------------------------------------------------------------
+| 100.0% | 8.201418 |   1.0 |main
+||----------------------------------------------------------------------------
+||  63.8% | 5.232013 |    -- |Nektar::LibUtilities::NekFactory<>::CreateInstance
+3|        |          |       | Nektar::LibUtilities::CommMpi::create
+4|        |          |       |  Nektar::LibUtilities::CommMpi::CommMpi
+|||||-------------------------------------------------------------------------
+5||||  63.8% | 5.231996 |   1.0 |MPI_Init(sync)
+5||||   0.0% | 0.000012 |   1.0 |MPI_Initialized
+5||||   0.0% | 0.000003 |   1.0 |MPI_Init
+5||||   0.0% | 0.000002 |   1.0 |MPI_Comm_size
+5||||   0.0% | 0.000001 |   1.0 |MPI_Comm_rank
+|||||=========================================================================
+||  34.7% | 2.846724 |    -- |TestWrite
+|||---------------------------------------------------------------------------
+3||  32.3% | 2.649012 |    -- |Nektar::LibUtilities::FieldIOHdf5::v_Write
+||||--------------------------------------------------------------------------
+4|||  18.9% | 1.551223 |    -- |boost::detail::shared_count::~shared_count
+5|||        |          |       | boost::detail::sp_counted_impl_p<>::dispose
+||||||------------------------------------------------------------------------
+6|||||  18.9% | 1.550770 |    -- |Nektar::LibUtilities::H5::File::~File
+7|||||        |          |       | Nektar::LibUtilities::H5::File::Close
+8|||||  18.9% | 1.550770 | 115.7 |  H5Fclose
+6|||||   0.0% | 0.000225 |    -- |Nektar::LibUtilities::H5::DataSet::~DataSet
+7|||||        |          |       | Nektar::LibUtilities::H5::DataSet::Close
+8|||||   0.0% | 0.000225 |  20.3 |  H5Dclose
+6|||||   0.0% | 0.000191 |    -- |Nektar::LibUtilities::H5::PList::~PList
+7|||||        |          |       | Nektar::LibUtilities::H5::PList::Close
+8|||||   0.0% | 0.000191 |  64.0 |  H5Pclose
+6|||||   0.0% | 0.000020 |    -- |Nektar::LibUtilities::H5::DataSpace::~DataSpace
+7|||||        |          |       | Nektar::LibUtilities::H5::DataSpace::Close
+8|||||   0.0% | 0.000020 |  20.3 |  H5Sclose
+6|||||   0.0% | 0.000018 |    -- |Nektar::LibUtilities::H5::Group::~Group
+7|||||        |          |       | Nektar::LibUtilities::H5::Group::Close
+8|||||   0.0% | 0.000018 |  10.2 |  H5Gclose
+||||||========================================================================
+4|||   6.5% | 0.529996 |    -- |Nektar::LibUtilities::H5::File::Open
+5|||   6.5% | 0.529996 | 537.5 | H5Fopen
+4|||   3.3% | 0.267093 |    -- |void Nektar::LibUtilities::H5::DataSet::Write<>
+|||||-------------------------------------------------------------------------
+5||||   3.3% | 0.267019 | 607.4 |H5Dwrite
+5||||   0.0% | 0.000045 |    -- |boost::detail::shared_count::~shared_count
+6||||        |          |       | boost::detail::sp_counted_impl_p<>::dispose
+7||||        |          |       |  Nektar::LibUtilities::H5::DataSpace::~DataSpace
+8||||        |          |       |   Nektar::LibUtilities::H5::DataSpace::Close
+9||||   0.0% | 0.000045 |  20.0 |    H5Sclose
+5||||   0.0% | 0.000028 |    -- |Nektar::LibUtilities::H5::DataSpace::OneD
+6||||   0.0% | 0.000028 |  20.0 | H5Screate_simple
+|||||=========================================================================
+4|||   1.3% | 0.106168 |    -- |Nektar::LibUtilities::FieldIO::SetUpOutput
+|||||-------------------------------------------------------------------------
+5||||   1.3% | 0.105961 |  20.0 |MPI_Barrier(sync)
+5||||   0.0% | 0.000207 |  20.0 |MPI_Barrier
+|||||=========================================================================
+4|||   1.0% | 0.082445 |  30.0 |MPI_Barrier(sync)
+4|||   0.4% | 0.029022 |    -- |Nektar::LibUtilities::CommMpi::v_Bcast
+|||||-------------------------------------------------------------------------
+5||||   0.3% | 0.027377 |  10.0 |MPI_Bcast(sync)
+5||||   0.0% | 0.001646 |  10.0 |MPI_Bcast
+|||||=========================================================================
+4|||   0.3% | 0.026056 |    -- |Nektar::LibUtilities::CommMpi::v_AllReduce
+|||||-------------------------------------------------------------------------
+5||||   0.2% | 0.013707 |  50.0 |MPI_Allreduce
+5||||   0.2% | 0.012349 |  50.0 |MPI_Allreduce(sync)
+|||||=========================================================================
+4|||   0.3% | 0.021956 |    -- |Nektar::LibUtilities::H5::CanHaveGroupsDataSets::OpenGroup
+5|||   0.3% | 0.021956 | 250.7 | H5Gopen2
+4|||   0.1% | 0.011865 |  30.0 |MPI_Barrier
+4|||   0.1% | 0.011538 |    -- |Nektar::LibUtilities::CommMpi::v_Scatter
+|||||-------------------------------------------------------------------------
+5||||   0.1% | 0.011237 |  10.0 |MPI_Scatter(sync)
+5||||   0.0% | 0.000301 |  10.0 |MPI_Scatter
+|||||=========================================================================
+4|||   0.1% | 0.008339 |    -- |Nektar::LibUtilities::H5::CanHaveGroupsDataSets::OpenDataSet
+5|||   0.1% | 0.008339 | 420.5 | H5Dopen2
+4|||   0.0% | 0.002403 |    -- |Nektar::LibUtilities::CommMpi::v_CommCreateIf
+|||||-------------------------------------------------------------------------
+5||||   0.0% | 0.002390 |  18.0 |MPI_Comm_split
+5||||   0.0% | 0.000013 |    -- |Nektar::LibUtilities::CommMpi::CommMpi
+||||||------------------------------------------------------------------------
+6|||||   0.0% | 0.000008 |  10.0 |MPI_Comm_size
+6|||||   0.0% | 0.000005 |  10.0 |MPI_Comm_rank
+|||||=========================================================================
+4|||   0.0% | 0.000537 |    -- |std::vector<> Nektar::LibUtilities::Comm::Gather<>
+5|||        |          |       | Nektar::LibUtilities::CommMpi::v_Gather
+||||||------------------------------------------------------------------------
+6|||||   0.0% | 0.000478 |  20.0 |MPI_Gather(sync)
+6|||||   0.0% | 0.000059 |  20.0 |MPI_Gather
+||||||========================================================================
+4|||   0.0% | 0.000122 |    -- |Nektar::LibUtilities::H5::PList::FileAccess
+|||||-------------------------------------------------------------------------
+5||||   0.0% | 0.000112 |    -- |Nektar::LibUtilities::H5::PList::PList
+6||||   0.0% | 0.000112 |  10.0 | H5Pcreate
+5||||   0.0% | 0.000010 |  10.0 |H5open
+|||||=========================================================================
+4|||   0.0% | 0.000087 |    -- |Nektar::LibUtilities::H5::PList::DatasetXfer
+|||||-------------------------------------------------------------------------
+5||||   0.0% | 0.000079 |    -- |Nektar::LibUtilities::H5::PList::PList
+6||||   0.0% | 0.000079 |  10.0 | H5Pcreate
+5||||   0.0% | 0.000008 |  10.0 |H5open
+|||||=========================================================================
+4|||   0.0% | 0.000080 |    -- |Nektar::LibUtilities::H5::File::Create
+5|||   0.0% | 0.000080 |   0.2 | H5Fcreate
+4|||   0.0% | 0.000023 |    -- |Nektar::LibUtilities::H5::DataSpace::SelectRange
+5|||   0.0% | 0.000023 |  20.1 | H5Sselect_hyperslab
+4|||   0.0% | 0.000021 |    -- |Nektar::LibUtilities::H5::DataSet::GetSpace
+5|||   0.0% | 0.000021 |  20.1 | H5Dget_space
+4|||   0.0% | 0.000012 |    -- |boost::shared_ptr<>::operator=
+5|||        |          |       | boost::detail::shared_count::~shared_count
+6|||        |          |       |  boost::detail::sp_counted_impl_p<>::dispose
+7|||        |          |       |   Nektar::LibUtilities::H5::PList::~PList
+8|||        |          |       |    Nektar::LibUtilities::H5::PList::Close
+9|||   0.0% | 0.000012 |  20.0 |     H5Pclose
+4|||   0.0% | 0.000008 |    -- |Nektar::LibUtilities::FieldIO::AddInfoTag
+|||||-------------------------------------------------------------------------
+5||||   0.0% | 0.000006 |    -- |void Nektar::LibUtilities::H5::CanHaveAttributes::SetAttribute<>
+||||||------------------------------------------------------------------------
+6|||||   0.0% | 0.000003 |   0.3 |H5Awrite
+6|||||   0.0% | 0.000002 |    -- |Nektar::LibUtilities::H5::CanHaveAttributes::CreateAttribute
+7|||||        |          |       | Nektar::LibUtilities::H5::Attribute::Create
+8|||||   0.0% | 0.000002 |   0.3 |  H5Acreate2
+6|||||   0.0% | 0.000001 |    -- |Nektar::LibUtilities::H5::DataType::String
+|||||||-----------------------------------------------------------------------
+7||||||   0.0% | 0.000000 |    -- |Nektar::LibUtilities::H5::DataType::Copy
+8||||||   0.0% | 0.000000 |   0.3 | H5Tcopy
+7||||||   0.0% | 0.000000 |   0.3 |H5Tset_size
+7||||||   0.0% | 0.000000 |    -- |Nektar::LibUtilities::H5::PredefinedDataType::CS1
+8||||||   0.0% | 0.000000 |   0.3 | H5open
+|||||||=======================================================================
+6|||||   0.0% | 0.000000 |    -- |boost::detail::shared_count::~shared_count
+7|||||        |          |       | boost::detail::sp_counted_impl_p<>::dispose
+||||||||----------------------------------------------------------------------
+8|||||||   0.0% | 0.000000 |    -- |Nektar::LibUtilities::H5::Attribute::~Attribute
+9|||||||        |          |       | Nektar::LibUtilities::H5::Attribute::Close
+10||||||   0.0% | 0.000000 |   0.3 |  H5Aclose
+8|||||||   0.0% | 0.000000 |    -- |Nektar::LibUtilities::H5::DataSpace::~DataSpace
+9|||||||        |          |       | Nektar::LibUtilities::H5::DataSpace::Close
+10||||||   0.0% | 0.000000 |   0.3 |  H5Sclose
+||||||||======================================================================
+6|||||   0.0% | 0.000000 |    -- |Nektar::LibUtilities::H5::DataSpace::Scalar
+7|||||   0.0% | 0.000000 |   0.3 | H5Screate
+||||||========================================================================
+5||||   0.0% | 0.000002 |    -- |Nektar::LibUtilities::H5TagWriter::AddChild
+||||||------------------------------------------------------------------------
+6|||||   0.0% | 0.000002 |    -- |Nektar::LibUtilities::H5::CanHaveGroupsDataSets::CreateGroup
+7|||||   0.0% | 0.000002 |   0.1 | H5Gcreate2
+6|||||   0.0% | 0.000000 |    -- |boost::detail::shared_count::~shared_count
+7|||||        |          |       | boost::detail::sp_counted_impl_p<>::dispose
+8|||||        |          |       |  Nektar::LibUtilities::H5::PList::~PList
+9|||||        |          |       |   Nektar::LibUtilities::H5::PList::Close
+10||||   0.0% | 0.000000 |   0.2 |    H5Pclose
+||||||========================================================================
+5||||   0.0% | 0.000000 |    -- |boost::detail::shared_count::~shared_count
+6||||        |          |       | Nektar::LibUtilities::H5TagWriter::~H5TagWriter
+7||||        |          |       |  boost::detail::shared_count::~shared_count
+8||||        |          |       |   boost::detail::sp_counted_impl_p<>::dispose
+9||||        |          |       |    Nektar::LibUtilities::H5::Group::~Group
+10|||        |          |       |     Nektar::LibUtilities::H5::Group::Close
+11|||   0.0% | 0.000000 |   0.1 |      H5Gclose
+|||||=========================================================================
+4|||   0.0% | 0.000005 |  10.2 |H5check_version
+4|||   0.0% | 0.000005 |    -- |Nektar::LibUtilities::H5::CanHaveGroupsDataSets::CreateGroup
+5|||   0.0% | 0.000005 |   0.4 | H5Gcreate2
+4|||   0.0% | 0.000004 |    -- |void Nektar::LibUtilities::H5::CanHaveAttributes::SetAttribute<>
+|||||-------------------------------------------------------------------------
+5||||   0.0% | 0.000002 |    -- |Nektar::LibUtilities::H5::CanHaveAttributes::CreateAttribute
+6||||        |          |       | Nektar::LibUtilities::H5::Attribute::Create
+7||||   0.0% | 0.000002 |   0.3 |  H5Acreate2
+5||||   0.0% | 0.000001 |   0.3 |H5Awrite
+5||||   0.0% | 0.000001 |    -- |Nektar::LibUtilities::H5::DataType::String
+||||||------------------------------------------------------------------------
+6|||||   0.0% | 0.000000 |    -- |Nektar::LibUtilities::H5::DataType::Copy
+7|||||   0.0% | 0.000000 |   0.2 | H5Tcopy
+6|||||   0.0% | 0.000000 |   0.2 |H5Tset_size
+6|||||   0.0% | 0.000000 |    -- |Nektar::LibUtilities::H5::PredefinedDataType::CS1
+7|||||   0.0% | 0.000000 |   0.2 | H5open
+||||||========================================================================
+5||||   0.0% | 0.000000 |    -- |boost::detail::shared_count::~shared_count
+6||||        |          |       | boost::detail::sp_counted_impl_p<>::dispose
+|||||||-----------------------------------------------------------------------
+7||||||   0.0% | 0.000000 |    -- |Nektar::LibUtilities::H5::Attribute::~Attribute
+8||||||        |          |       | Nektar::LibUtilities::H5::Attribute::Close
+9||||||   0.0% | 0.000000 |   0.3 |  H5Aclose
+7||||||   0.0% | 0.000000 |    -- |Nektar::LibUtilities::H5::DataSpace::~DataSpace
+8||||||        |          |       | Nektar::LibUtilities::H5::DataSpace::Close
+9||||||   0.0% | 0.000000 |   0.3 |  H5Sclose
+|||||||=======================================================================
+5||||   0.0% | 0.000000 |    -- |Nektar::LibUtilities::H5::DataSpace::OneD
+6||||   0.0% | 0.000000 |   0.1 | H5Screate_simple
+5||||   0.0% | 0.000000 |    -- |Nektar::LibUtilities::H5::DataSpace::Scalar
+6||||   0.0% | 0.000000 |   0.2 | H5Screate
+|||||=========================================================================
+4|||   0.0% | 0.000003 |    -- |Nektar::LibUtilities::H5::CanHaveGroupsDataSets::CreateDataSet
+5|||   0.0% | 0.000003 |   0.2 | H5Dcreate2
+4|||   0.0% | 0.000001 |   0.1 |H5Dwrite
+4|||   0.0% | 0.000000 |    -- |Nektar::LibUtilities::H5::DataSpace::OneD
+5|||   0.0% | 0.000000 |   0.2 | H5Screate_simple
+||||==========================================================================
+3||   1.3% | 0.106383 |    -- |Nektar::LibUtilities::FieldIOHdf5::v_Import
+||||--------------------------------------------------------------------------
+4|||   0.7% | 0.059949 |    -- |Nektar::LibUtilities::FieldIOHdf5::ImportFieldData
+|||||-------------------------------------------------------------------------
+5||||   0.7% | 0.059940 | 524.9 |H5Dread
+5||||   0.0% | 0.000003 |    -- |Nektar::LibUtilities::H5::DataSpace::OneD
+6||||   0.0% | 0.000003 |   1.0 | H5Screate_simple
+5||||   0.0% | 0.000003 |    -- |boost::detail::shared_count::~shared_count
+6||||        |          |       | boost::detail::sp_counted_impl_p<>::dispose
+7||||        |          |       |  Nektar::LibUtilities::H5::DataSpace::~DataSpace
+8||||        |          |       |   Nektar::LibUtilities::H5::DataSpace::Close
+9||||   0.0% | 0.000003 |   1.0 |    H5Sclose
+5||||   0.0% | 0.000003 |    -- |Nektar::LibUtilities::H5::DataSpace::SelectRange
+6||||   0.0% | 0.000003 |   1.0 | H5Sselect_hyperslab
+5||||   0.0% | 0.000001 |   1.0 |H5Sget_select_npoints
+|||||=========================================================================
+4|||   0.4% | 0.035316 |    -- |void Nektar::LibUtilities::H5::DataSet::Read<>
+|||||-------------------------------------------------------------------------
+5||||   0.4% | 0.035301 | 488.3 |H5Dread
+5||||   0.0% | 0.000006 |    -- |boost::detail::shared_count::~shared_count
+6||||        |          |       | boost::detail::sp_counted_impl_p<>::dispose
+7||||        |          |       |  Nektar::LibUtilities::H5::DataSpace::~DataSpace
+8||||        |          |       |   Nektar::LibUtilities::H5::DataSpace::Close
+9||||   0.0% | 0.000006 |   2.0 |    H5Sclose
+5||||   0.0% | 0.000005 |    -- |Nektar::LibUtilities::H5::DataSpace::OneD
+6||||   0.0% | 0.000005 |   2.0 | H5Screate_simple
+5||||   0.0% | 0.000004 |   2.0 |H5Sget_select_npoints
+|||||=========================================================================
+4|||   0.1% | 0.008321 |    -- |Nektar::LibUtilities::H5DataSource::create
+|||||-------------------------------------------------------------------------
+5||||   0.1% | 0.008321 |    -- |Nektar::LibUtilities::H5::File::Open
+6||||   0.1% | 0.008321 |  42.0 | H5Fopen
+5||||   0.0% | 0.000001 |   1.0 |H5check_version
+|||||=========================================================================
+4|||   0.0% | 0.000740 |   5.0 |MPI_Barrier(sync)
+4|||   0.0% | 0.000620 |    -- |Nektar::LibUtilities::FieldIOHdf5::ImportFieldDef
+|||||-------------------------------------------------------------------------
+5||||   0.0% | 0.000275 |    -- |Nektar::LibUtilities::H5::CanHaveGroupsDataSets::OpenGroup
+6||||   0.0% | 0.000275 |  17.0 | H5Gopen2
+5||||   0.0% | 0.000176 |    -- |void Nektar::LibUtilities::H5::CanHaveAttributes::GetAttribute<>
+||||||------------------------------------------------------------------------
+6|||||   0.0% | 0.000119 |  12.0 |H5Aread
+6|||||   0.0% | 0.000020 |    -- |Nektar::LibUtilities::H5::DataType::String
+|||||||-----------------------------------------------------------------------
+7||||||   0.0% | 0.000008 |    -- |Nektar::LibUtilities::H5::DataType::Copy
+8||||||   0.0% | 0.000008 |   3.0 | H5Tcopy
+7||||||   0.0% | 0.000008 |   3.0 |H5Tset_size
+7||||||   0.0% | 0.000004 |    -- |Nektar::LibUtilities::H5::PredefinedDataType::CS1
+8||||||   0.0% | 0.000004 |   3.0 | H5open
+|||||||=======================================================================
+6|||||   0.0% | 0.000012 |    -- |Nektar::LibUtilities::H5::CanHaveAttributes::OpenAttribute
+7|||||        |          |       | Nektar::LibUtilities::H5::Attribute::Open
+8|||||   0.0% | 0.000012 |   4.0 |  H5Aopen
+6|||||   0.0% | 0.000012 |    -- |boost::detail::shared_count::~shared_count
+7|||||        |          |       | boost::detail::sp_counted_impl_p<>::dispose
+||||||||----------------------------------------------------------------------
+8|||||||   0.0% | 0.000006 |    -- |Nektar::LibUtilities::H5::Attribute::~Attribute
+9|||||||        |          |       | Nektar::LibUtilities::H5::Attribute::Close
+10||||||   0.0% | 0.000006 |   4.0 |  H5Aclose
+8|||||||   0.0% | 0.000006 |    -- |Nektar::LibUtilities::H5::DataSpace::~DataSpace
+9|||||||        |          |       | Nektar::LibUtilities::H5::DataSpace::Close
+10||||||   0.0% | 0.000006 |   4.0 |  H5Sclose
+||||||||======================================================================
+6|||||   0.0% | 0.000006 |    -- |Nektar::LibUtilities::H5::Attribute::GetSpace
+7|||||   0.0% | 0.000006 |   2.0 | H5Aget_space
+6|||||   0.0% | 0.000002 |    -- |Nektar::LibUtilities::H5::DataSpace::Scalar
+7|||||   0.0% | 0.000002 |   2.0 | H5Screate
+6|||||   0.0% | 0.000002 |   2.0 |H5Sget_simple_extent_ndims
+6|||||   0.0% | 0.000002 |   2.0 |H5Sget_simple_extent_dims
+||||||========================================================================
+5||||   0.0% | 0.000143 |    -- |Nektar::LibUtilities::H5::CanHaveAttributes::attr_begin
+6||||        |          |       | Nektar::LibUtilities::H5::CanHaveAttributes::AttrIterator::AttrIterator
+|||||||-----------------------------------------------------------------------
+7||||||   0.0% | 0.000131 |    -- |Nektar::LibUtilities::H5::CanHaveAttributes::GetNumAttr
+8||||||   0.0% | 0.000131 |  16.0 | H5Oget_info
+7||||||   0.0% | 0.000012 |    -- |Nektar::LibUtilities::H5::CanHaveAttributes::AttrIterator::operator++
+8||||||   0.0% | 0.000012 |   1.0 | H5Aiterate2
+|||||||=======================================================================
+5||||   0.0% | 0.000014 |    -- |Nektar::LibUtilities::H5::CanHaveAttributes::AttrIterator::operator++
+6||||   0.0% | 0.000014 |   3.0 | H5Aiterate2
+5||||   0.0% | 0.000006 |    -- |Nektar::LibUtilities::H5::CanHaveAttributes::attr_end
+||||||------------------------------------------------------------------------
+6|||||   0.0% | 0.000004 |    -- |Nektar::LibUtilities::H5::CanHaveAttributes::GetNumAttr
+7|||||   0.0% | 0.000004 |   1.0 | H5Oget_info
+6|||||   0.0% | 0.000002 |    -- |Nektar::LibUtilities::H5::CanHaveAttributes::AttrIterator::AttrIterator
+7|||||        |          |       | Nektar::LibUtilities::H5::CanHaveAttributes::GetNumAttr
+8|||||   0.0% | 0.000002 |   1.0 |  H5Oget_info
+||||||========================================================================
+5||||   0.0% | 0.000006 |    -- |boost::detail::shared_count::~shared_count
+6||||        |          |       | boost::detail::sp_counted_impl_p<>::dispose
+|||||||-----------------------------------------------------------------------
+7||||||   0.0% | 0.000004 |    -- |Nektar::LibUtilities::H5::Group::~Group
+8||||||        |          |       | Nektar::LibUtilities::H5::Group::Close
+9||||||   0.0% | 0.000004 |   1.0 |  H5Gclose
+7||||||   0.0% | 0.000001 |    -- |Nektar::LibUtilities::H5::PList::~PList
+8||||||        |          |       | Nektar::LibUtilities::H5::PList::Close
+9||||||   0.0% | 0.000001 |   1.0 |  H5Pclose
+|||||=========================================================================
+4|||   0.0% | 0.000419 |    -- |Nektar::LibUtilities::H5::CanHaveGroupsDataSets::OpenGroup
+5|||   0.0% | 0.000419 |  41.0 | H5Gopen2
+4|||   0.0% | 0.000398 |    -- |boost::detail::shared_count::~shared_count
+5|||        |          |       | boost::detail::sp_counted_impl_p<>::dispose
+||||||------------------------------------------------------------------------
+6|||||   0.0% | 0.000308 |    -- |boost::detail::shared_count::~shared_count
+7|||||        |          |       | boost::detail::sp_counted_impl_p<>::dispose
+8|||||        |          |       |  Nektar::LibUtilities::H5::File::~File
+9|||||        |          |       |   Nektar::LibUtilities::H5::File::Close
+10||||   0.0% | 0.000308 |   6.0 |    H5Fclose
+6|||||   0.0% | 0.000033 |    -- |Nektar::LibUtilities::H5::DataSpace::~DataSpace
+7|||||        |          |       | Nektar::LibUtilities::H5::DataSpace::Close
+8|||||   0.0% | 0.000033 |   3.0 |  H5Sclose
+6|||||   0.0% | 0.000032 |    -- |Nektar::LibUtilities::H5::PList::~PList
+7|||||        |          |       | Nektar::LibUtilities::H5::PList::Close
+8|||||   0.0% | 0.000032 |   8.0 |  H5Pclose
+6|||||   0.0% | 0.000024 |    -- |Nektar::LibUtilities::H5::DataSet::~DataSet
+7|||||        |          |       | Nektar::LibUtilities::H5::DataSet::Close
+8|||||   0.0% | 0.000024 |   3.0 |  H5Dclose
+6|||||   0.0% | 0.000002 |    -- |Nektar::LibUtilities::H5::Group::~Group
+7|||||        |          |       | Nektar::LibUtilities::H5::Group::Close
+8|||||   0.0% | 0.000002 |   1.0 |  H5Gclose
+||||||========================================================================
+4|||   0.0% | 0.000352 |    -- |Nektar::LibUtilities::H5::CanHaveGroupsDataSets::OpenDataSet
+5|||   0.0% | 0.000352 |  35.0 | H5Dopen2
+4|||   0.0% | 0.000157 |    -- |Nektar::LibUtilities::H5::CanHaveAttributes::attr_begin
+5|||        |          |       | Nektar::LibUtilities::H5::CanHaveAttributes::AttrIterator::AttrIterator
+||||||------------------------------------------------------------------------
+6|||||   0.0% | 0.000128 |    -- |Nektar::LibUtilities::H5::CanHaveAttributes::GetNumAttr
+7|||||   0.0% | 0.000128 |  16.0 | H5Oget_info
+6|||||   0.0% | 0.000029 |    -- |Nektar::LibUtilities::H5::CanHaveAttributes::AttrIterator::operator++
+7|||||   0.0% | 0.000029 |   1.0 | H5Aiterate2
+||||||========================================================================
+4|||   0.0% | 0.000046 |   5.0 |MPI_Barrier
+4|||   0.0% | 0.000029 |    -- |void Nektar::LibUtilities::H5::CanHaveAttributes::GetAttribute<>
+|||||-------------------------------------------------------------------------
+5||||   0.0% | 0.000015 |    -- |Nektar::LibUtilities::H5::CanHaveAttributes::OpenAttribute
+6||||        |          |       | Nektar::LibUtilities::H5::Attribute::Open
+7||||   0.0% | 0.000015 |   1.0 |  H5Aopen
+5||||   0.0% | 0.000006 |    -- |boost::detail::shared_count::~shared_count
+6||||        |          |       | boost::detail::sp_counted_impl_p<>::dispose
+|||||||-----------------------------------------------------------------------
+7||||||   0.0% | 0.000004 |    -- |Nektar::LibUtilities::H5::Attribute::~Attribute
+8||||||        |          |       | Nektar::LibUtilities::H5::Attribute::Close
+9||||||   0.0% | 0.000004 |   1.0 |  H5Aclose
+7||||||   0.0% | 0.000001 |    -- |Nektar::LibUtilities::H5::DataSpace::~DataSpace
+8||||||        |          |       | Nektar::LibUtilities::H5::DataSpace::Close
+9||||||   0.0% | 0.000001 |   1.0 |  H5Sclose
+|||||||=======================================================================
+5||||   0.0% | 0.000005 |   1.0 |H5Aread
+5||||   0.0% | 0.000003 |    -- |Nektar::LibUtilities::H5::DataSpace::Scalar
+6||||   0.0% | 0.000003 |   1.0 | H5Screate
+|||||=========================================================================
+4|||   0.0% | 0.000013 |    -- |Nektar::LibUtilities::H5::PList::FileAccess
+|||||-------------------------------------------------------------------------
+5||||   0.0% | 0.000010 |    -- |Nektar::LibUtilities::H5::PList::PList
+6||||   0.0% | 0.000010 |   1.0 | H5Pcreate
+5||||   0.0% | 0.000002 |   1.0 |H5open
+|||||=========================================================================
+4|||   0.0% | 0.000010 |    -- |Nektar::LibUtilities::H5::PList::DatasetXfer
+|||||-------------------------------------------------------------------------
+5||||   0.0% | 0.000009 |    -- |Nektar::LibUtilities::H5::PList::PList
+6||||   0.0% | 0.000009 |   1.0 | H5Pcreate
+5||||   0.0% | 0.000001 |   1.0 |H5open
+|||||=========================================================================
+4|||   0.0% | 0.000007 |    -- |Nektar::LibUtilities::H5::CanHaveAttributes::attr_end
+|||||-------------------------------------------------------------------------
+5||||   0.0% | 0.000005 |    -- |Nektar::LibUtilities::H5::CanHaveAttributes::GetNumAttr
+6||||   0.0% | 0.000005 |   1.0 | H5Oget_info
+5||||   0.0% | 0.000002 |    -- |Nektar::LibUtilities::H5::CanHaveAttributes::AttrIterator::AttrIterator
+6||||        |          |       | Nektar::LibUtilities::H5::CanHaveAttributes::GetNumAttr
+7||||   0.0% | 0.000002 |   1.0 |  H5Oget_info
+|||||=========================================================================
+4|||   0.0% | 0.000004 |    -- |Nektar::LibUtilities::H5::DataSet::GetSpace
+5|||   0.0% | 0.000004 |   3.0 | H5Dget_space
+4|||   0.0% | 0.000002 |    -- |boost::shared_ptr<>::operator=
+5|||        |          |       | boost::detail::shared_count::~shared_count
+6|||        |          |       |  boost::detail::sp_counted_impl_p<>::dispose
+7|||        |          |       |   Nektar::LibUtilities::H5::PList::~PList
+8|||        |          |       |    Nektar::LibUtilities::H5::PList::Close
+9|||   0.0% | 0.000002 |   2.0 |     H5Pclose
+||||==========================================================================
+3||   1.0% | 0.078734 |    -- |ReadIDsForThisRank
+||||--------------------------------------------------------------------------
+4|||   0.9% | 0.077425 |    -- |Nektar::LibUtilities::FieldIOHdf5::v_ImportMultiFldFileIDs
+|||||-------------------------------------------------------------------------
+5||||   0.7% | 0.061119 |    -- |void Nektar::LibUtilities::H5::DataSet::Read<>
+||||||------------------------------------------------------------------------
+6|||||   0.7% | 0.061100 | 505.4 |H5Dread
+6|||||   0.0% | 0.000010 |    -- |boost::detail::shared_count::~shared_count
+7|||||        |          |       | boost::detail::sp_counted_impl_p<>::dispose
+8|||||        |          |       |  Nektar::LibUtilities::H5::DataSpace::~DataSpace
+9|||||        |          |       |   Nektar::LibUtilities::H5::DataSpace::Close
+10||||   0.0% | 0.000010 |   1.0 |    H5Sclose
+6|||||   0.0% | 0.000008 |    -- |Nektar::LibUtilities::H5::DataSpace::OneD
+7|||||   0.0% | 0.000008 |   1.0 | H5Screate_simple
+6|||||   0.0% | 0.000001 |   1.0 |H5Sget_select_npoints
+||||||========================================================================
+5||||   0.1% | 0.009645 |    -- |Nektar::LibUtilities::H5DataSource::create
+||||||------------------------------------------------------------------------
+6|||||   0.1% | 0.009640 |    -- |Nektar::LibUtilities::H5::File::Open
+7|||||   0.1% | 0.009640 |  43.0 | H5Fopen
+6|||||   0.0% | 0.000005 |   1.0 |H5check_version
+||||||========================================================================
+5||||   0.0% | 0.003048 |  31.0 |H5Dread
+5||||   0.0% | 0.002356 |    -- |Nektar::LibUtilities::H5::CanHaveGroupsDataSets::OpenGroup
+6||||   0.0% | 0.002356 |  41.0 | H5Gopen2
+5||||   0.0% | 0.000601 |    -- |boost::detail::shared_count::~shared_count
+6||||        |          |       | boost::detail::sp_counted_impl_p<>::dispose
+|||||||-----------------------------------------------------------------------
+7||||||   0.0% | 0.000461 |    -- |boost::detail::shared_count::~shared_count
+8||||||        |          |       | boost::detail::sp_counted_impl_p<>::dispose
+9||||||        |          |       |  Nektar::LibUtilities::H5::File::~File
+10|||||        |          |       |   Nektar::LibUtilities::H5::File::Close
+11|||||   0.0% | 0.000461 |   6.0 |    H5Fclose
+7||||||   0.0% | 0.000087 |    -- |Nektar::LibUtilities::H5::DataSet::~DataSet
+8||||||        |          |       | Nektar::LibUtilities::H5::DataSet::Close
+9||||||   0.0% | 0.000087 |   2.0 |  H5Dclose
+7||||||   0.0% | 0.000037 |    -- |Nektar::LibUtilities::H5::PList::~PList
+8||||||        |          |       | Nektar::LibUtilities::H5::PList::Close
+9||||||   0.0% | 0.000037 |   7.0 |  H5Pclose
+7||||||   0.0% | 0.000008 |    -- |Nektar::LibUtilities::H5::DataSpace::~DataSpace
+8||||||        |          |       | Nektar::LibUtilities::H5::DataSpace::Close
+9||||||   0.0% | 0.000008 |   3.0 |  H5Sclose
+7||||||   0.0% | 0.000008 |    -- |Nektar::LibUtilities::H5::Group::~Group
+8||||||        |          |       | Nektar::LibUtilities::H5::Group::Close
+9||||||   0.0% | 0.000008 |   1.0 |  H5Gclose
+|||||||=======================================================================
+5||||   0.0% | 0.000460 |    -- |Nektar::LibUtilities::H5::CanHaveGroupsDataSets::OpenDataSet
+6||||   0.0% | 0.000460 |  42.0 | H5Dopen2
+5||||   0.0% | 0.000113 |   1.0 |MPI_Barrier(sync)
+5||||   0.0% | 0.000030 |    -- |Nektar::LibUtilities::H5::PList::FileAccess
+||||||------------------------------------------------------------------------
+6|||||   0.0% | 0.000028 |    -- |Nektar::LibUtilities::H5::PList::PList
+7|||||   0.0% | 0.000028 |   1.0 | H5Pcreate
+6|||||   0.0% | 0.000002 |   1.0 |H5open
+||||||========================================================================
+5||||   0.0% | 0.000015 |    -- |Nektar::LibUtilities::H5::PList::DatasetXfer
+||||||------------------------------------------------------------------------
+6|||||   0.0% | 0.000014 |    -- |Nektar::LibUtilities::H5::PList::PList
+7|||||   0.0% | 0.000014 |   1.0 | H5Pcreate
+6|||||   0.0% | 0.000001 |   1.0 |H5open
+||||||========================================================================
+5||||   0.0% | 0.000011 |    -- |Nektar::LibUtilities::H5::DataSet::GetSpace
+6||||   0.0% | 0.000011 |   2.0 | H5Dget_space
+5||||   0.0% | 0.000010 |    -- |Nektar::LibUtilities::H5::DataSpace::SelectRange
+6||||   0.0% | 0.000010 |   1.0 | H5Sselect_hyperslab
+5||||   0.0% | 0.000009 |   1.0 |MPI_Barrier
+5||||   0.0% | 0.000003 |    -- |Nektar::LibUtilities::H5::DataSpace::OneD
+6||||   0.0% | 0.000003 |   1.0 | H5Screate_simple
+5||||   0.0% | 0.000003 |    -- |boost::shared_ptr<>::operator=
+6||||        |          |       | boost::detail::shared_count::~shared_count
+7||||        |          |       |  boost::detail::sp_counted_impl_p<>::dispose
+8||||        |          |       |   Nektar::LibUtilities::H5::PList::~PList
+9||||        |          |       |    Nektar::LibUtilities::H5::PList::Close
+10|||   0.0% | 0.000003 |   2.0 |     H5Pclose
+5||||   0.0% | 0.000001 |   1.0 |H5Sget_simple_extent_npoints
+5||||   0.0% | 0.000001 |   1.0 |H5Sget_select_npoints
+|||||=========================================================================
+4|||   0.0% | 0.000759 |    -- |Nektar::LibUtilities::FieldIO::GetFileType
+5|||        |          |       | Nektar::LibUtilities::CommMpi::v_Bcast
+||||||------------------------------------------------------------------------
+6|||||   0.0% | 0.000749 |   1.0 |MPI_Bcast(sync)
+6|||||   0.0% | 0.000009 |   1.0 |MPI_Bcast
+||||||========================================================================
+4|||   0.0% | 0.000537 |   1.0 |MPI_Barrier(sync)
+4|||   0.0% | 0.000013 |   1.0 |MPI_Barrier
+||||==========================================================================
+3||   0.1% | 0.007427 |    -- |Nektar::LibUtilities::CommMpi::v_AllReduce
+||||--------------------------------------------------------------------------
+4|||   0.1% | 0.007288 |  10.0 |MPI_Allreduce(sync)
+4|||   0.0% | 0.000139 |  10.0 |MPI_Allreduce
+||||==========================================================================
+3||   0.1% | 0.004731 |    -- |Nektar::LibUtilities::FieldIO::GetFileType
+4||        |          |       | Nektar::LibUtilities::CommMpi::v_Bcast
+|||||-------------------------------------------------------------------------
+5||||   0.1% | 0.004663 |   1.0 |MPI_Bcast(sync)
+5||||   0.0% | 0.000069 |   1.0 |MPI_Bcast
+|||||=========================================================================
+3||   0.0% | 0.000386 |   1.0 |MPI_Barrier(sync)
+3||   0.0% | 0.000041 |  20.0 |MPI_Wtime
+3||   0.0% | 0.000009 |   1.0 |MPI_Barrier
+|||===========================================================================
+||   1.0% | 0.083586 |   1.0 |main(exclusive)
+||   0.3% | 0.026100 |   8.3 |remove_file_or_directory
+||   0.1% | 0.009956 |    -- |PrintResults
+3|        |          |       | Nektar::LibUtilities::CommMpi::v_AllReduce
+||||--------------------------------------------------------------------------
+4|||   0.1% | 0.009941 |   1.0 |MPI_Allreduce(sync)
+4|||   0.0% | 0.000016 |   1.0 |MPI_Allreduce
+||||==========================================================================
+||   0.0% | 0.002971 |  22.0 |H5FD_mpi_comm_info_dup
+||   0.0% | 0.000054 |   1.0 |MPI_Finalize(sync)
+||   0.0% | 0.000007 |   0.0 |std::__basic_file<>::open
+||   0.0% | 0.000002 |   0.0 |std::__basic_file<>::close
+||   0.0% | 0.000002 |   0.0 |std::__basic_file<>::xsgetn
+||   0.0% | 0.000001 |   1.0 |MPI_Finalize
+||   0.0% | 0.000000 |   0.3 |std::basic_ostream<>& std::__ostream_insert<>
+||   0.0% | 0.000000 |   0.2 |std::num_put<>::do_put
+||   0.0% | 0.000000 |   0.1 |std::ostream::flush
+||============================================================================
+|   0.0% | 0.001665 | 449.2 |H5FD_mpio_write
+|=============================================================================
+
+========================  Additional details  ========================
+
+Experiment:  trace
+
+Original path to data file:
+  /work/z01/z01/mrb/d101/nektar++/hdf5/aorta/arc/benchmark/exe/hdf5/FieldIOBenchmarker+pat+8098-15t.xf  (RTS)
+
+Original program:
+  /work/z01/z01/mrb/d101/nektar++/hdf5/aorta/arc/benchmark/exe/hdf5/FieldIOBenchmarker
+
+Instrumented with:
+  pat_build -f -g hdf5,mpi,io,aio,sysio,sysfs -D force-instr=y \
+    FieldIOBenchmarker
+
+Instrumented program:
+  /work/z01/z01/mrb/d101/nektar++/hdf5/aorta/arc/benchmark/exe/hdf5/FieldIOBenchmarker+pat
+
+Program invocation:
+  /work/z01/z01/mrb/d101/nektar++/hdf5/aorta/arc/benchmark/exe/hdf5/FieldIOBenchmarker+pat -v -n 10 -m h ./diffusion3d.fld
+
+Exit Status:  0 for 192 PEs
+
+Memory pagesize:  4 KiB
+
+Memory hugepagesize:  Not Available
+
+Programming environment:  GNU
+
+Runtime environment variables:
+  ATP_HOME=/opt/cray/atp/1.8.3
+  ATP_IGNORE_SIGTERM=1
+  ATP_MRNET_COMM_PATH=/opt/cray/atp/1.8.3/libexec/atp_mrnet_commnode_wrapper
+  ATP_POST_LINK_OPTS=-Wl,-L/opt/cray/atp/1.8.3/libApp/ 
+  CRAYOS_VERSION=5.2.56
+  CRAYPE_VERSION=2.4.2
+  CRAY_LIBSCI_VERSION=13.2.0
+  GCC_VERSION=5.1.0
+  GNU_VERSION=5.1.0
+  LIBSCI_VERSION=13.2.0
+  MODULE_VERSION=3.2.10.2
+  MODULE_VERSION_STACK=3.2.10.2
+  MPICH_ABORT_ON_ERROR=1
+  MPICH_DIR=/opt/cray/mpt/7.2.6/gni/mpich-gnu/51
+  OMP_NUM_THREADS=1
+  PATH=/opt/cray/perftools/6.4.1/bin:/opt/cray/papi/5.4.3.2/bin:/opt/cray/rca/1.0.0-2.0502.57212.2.56.ari/bin:/opt/cray/pmi/5.0.7-1.0000.10678.155.25.ari/bin:/opt/gcc/5.1.0/bin:/home/y07/y07/cse/xalt/0.6.0/libexec:/home/y07/y07/cse/xalt/0.6.0/bin:/opt/cray/mpt/7.2.6/gni/bin:/opt/pbs/12.2.401.141761/bin:/opt/cray/craype/2.4.2/bin:/opt/cray/llm/default/bin:/opt/cray/llm/default/etc:/opt/cray/xpmem/0.1-2.0502.57015.1.15.ari/bin:/opt/cray/ugni/6.0-1.0502.10245.9.9.ari/bin:/opt/cray/udreg/2.3.2-1.0502.9889.2.20.ari/bin:/opt/cray/lustre-cray_ari_s/2.5_3.0.101_0.35.1_1.0502.8640.15.1-1.0502.18911.12.4/sbin:/opt/cray/lustre-cray_ari_s/2.5_3.0.101_0.35.1_1.0502.8640.15.1-1.0502.18911.12.4/bin:/opt/cray/alps/5.2.3-2.0502.9295.14.14.ari/sbin:/opt/cray/alps/5.2.3-2.0502.9295.14.14.ari/bin:/opt/cray/sdb/1.0-1.0502.58450.3.27.ari/bin:/opt/cray/nodestat/2.2-1.0502.58998.2.7.ari/bin:/opt/modules/3.2.10.2/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/X11R6/bin:/usr/games:/usr/lib/mit/bin:/usr/lib/mit/sbin:.:/usr/lib/qt3/bin:/opt/cray/bin
+  PAT_BUILD_PAPI_BASEDIR=/opt/cray/papi/5.4.3.2
+  PAT_REPORT_PRUNE_NAME=_cray$mt_start_,__cray_hwpc_,f_cray_hwpc_,cstart,__pat_,pat_region_,PAT_,OMP.slave_loop,slave_entry,_new_slave_entry,THREAD_POOL_join,__libc_start_main,_start,__start,start_thread,__wrap_,UPC_ADIO_,_upc_,upc_,__caf_,__pgas_,syscall
+  PAT_RT_EXIT_AFTER_INIT=0
+  PAT_RT_TRACE_FUNCTION_DISPLAY=0
+  PERFTOOLS_VERSION=6.4.1
+  PMI_FORK_RANK=0
+  PMI_GNI_COOKIE=1566965760:1567031296
+  PMI_GNI_DEV_ID=0
+  PMI_GNI_LOC_ADDR=15:15
+  PMI_GNI_PTAG=148:149
+  XTOS_VERSION=5.2.56
+
+Report time environment variables:
+    CRAYPAT_ROOT=/opt/cray/perftools/6.4.1
+    PAT_REPORT_PRUNE_NAME=_cray$mt_start_,__cray_hwpc_,f_cray_hwpc_,cstart,__pat_,pat_region_,PAT_,OMP.slave_loop,slave_entry,_new_slave_entry,THREAD_POOL_join,__libc_start_main,_start,__start,start_thread,__wrap_,UPC_ADIO_,_upc_,upc_,__caf_,__pgas_,syscall
+
+Number of MPI control variables collected:  80
+
+  (To see the list, specify: -s mpi_cvar=show)
+
+Report command line options:  -O calltree -T
+
+Operating system:
+  Linux 3.0.101-0.35.1_1.0502.8640-cray_ari_c #1 SMP Wed Feb 18 05:13:50 UTC 2015
+
+Instrumentation overhead could not be estimated.
+
+Number of traced functions:  1422
+
+  (To see the list, specify:  -s traced_functions=show)
+
